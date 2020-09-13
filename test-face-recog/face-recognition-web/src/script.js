@@ -11,7 +11,7 @@ async function start() {
     container.style.position = 'relative'
     document.body.append(container)
     const labeledFaceDescriptors = await loadLabeledImages()
-    const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.6)
+    const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.55)
     let image
     let canvas
     document.body.append('Loaded')
@@ -36,7 +36,7 @@ async function start() {
 }
 
 function loadLabeledImages() {
-    const labels = ['Narongded', 'Dorn'];
+    const labels = ['Narongded', 'Dorn', 'Tanakorn'];
     return Promise.all(
         labels.map(async label => {
             const descriptions = []
