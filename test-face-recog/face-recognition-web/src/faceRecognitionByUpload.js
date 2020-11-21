@@ -40,7 +40,7 @@ async function start() {
 }
 
 function loadLabeledImages() {
-    const labels = ['Baipor'];
+    const labels = ['Tanakorn'];
     return Promise.all(
         labels.map(async label => {
             const descriptions = []
@@ -62,7 +62,7 @@ function loadLabeledImages() {
 }
 
 function loadLabeledImagesFromModel() {
-    const members = ['Dorn','Thanapon'];
+    const members = ['Dorn','Thanapon','Prachya','Baipor','Warit','Narongded','Siwapan','Chirayu','Natthawut','Pacharapon','Jirapas','Ariya','Wassapon','Poom','Teerachai','Nipith','Fern','Meen','Kla','Kim','Varen','Prem','Non','Pongsapak','Arm','Parin','Rattanawich','Tinnapat','Thongngurn','Tanakorn'];
     const labeledFaceDescriptors = members.map(
         member =>
             new faceapi.LabeledFaceDescriptors(
