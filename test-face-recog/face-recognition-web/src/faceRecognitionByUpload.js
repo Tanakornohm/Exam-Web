@@ -40,11 +40,11 @@ async function start() {
 }
 
 function loadLabeledImages() {
-    const labels = ['Tanakorn'];
+    const labels = ['Baipor'];
     return Promise.all(
         labels.map(async label => {
             const descriptions = []
-            for (let i = 12; i <= 12; i++) {
+            for (let i = 1; i <= 1; i++) {
                 // const img = await faceapi.fetchImage(`https://raw.githubusercontent.com/WebDevSimplified/Face-Recognition-JavaScript/master/labeled_images/${label}/${i}.jpg`)
                 // const img = await faceapi.fetchImage(`https://raw.githubusercontent.com/Tanakornohm/Exam-Web/master/test-face-recog/face-recognition-web/img/${label}/${i}.jpg`)
                 const img = await faceapi.fetchImage(`${label}/${i}.jpg`)
