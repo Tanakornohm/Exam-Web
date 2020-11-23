@@ -40,11 +40,11 @@ async function start() {
 }
 
 function loadLabeledImages() {
-    const labels = ['Baipor'];
+    const labels = ['Nonthakorn'];
     return Promise.all(
         labels.map(async label => {
             const descriptions = []
-            for (let i = 1; i <= 1; i++) {
+            for (let i = 12; i <= 12; i++) {
                 // const img = await faceapi.fetchImage(`https://raw.githubusercontent.com/WebDevSimplified/Face-Recognition-JavaScript/master/labeled_images/${label}/${i}.jpg`)
                 // const img = await faceapi.fetchImage(`https://raw.githubusercontent.com/Tanakornohm/Exam-Web/master/test-face-recog/face-recognition-web/img/${label}/${i}.jpg`)
                 const img = await faceapi.fetchImage(`${label}/${i}.jpg`)
@@ -62,7 +62,7 @@ function loadLabeledImages() {
 }
 
 function loadLabeledImagesFromModel() {
-    const members = ['Dorn','Thanapon','Prachya','Baipor','Warit','Narongded','Siwapan','Chirayu','Natthawut','Pacharapon','Jirapas','Ariya','Wassapon','Poom','Teerachai','Nipith','Fern','Meen','Kla','Kim','Varen','Prem','Non','Pongsapak','Arm','Parin','Rattanawich','Tinnapat','Thongngurn','Tanakorn'];
+    const members = ['Dorn','Thanapon','Prachya','Baipor','Warit','Narongded','Siwapan','Chirayu','Natthawut','Pacharapon','Jirapas','Ariya','Wassapon','Poom','Teerachai','Nipith','Fern','Meen','Kla','Kim','Varen','Prem','Pongsapak','Arm','Parin','Rattanawich','Tinnapat','Thongngurn','Tanakorn','Mhee','Nonthakorn'];
     const labeledFaceDescriptors = members.map(
         member =>
             new faceapi.LabeledFaceDescriptors(
