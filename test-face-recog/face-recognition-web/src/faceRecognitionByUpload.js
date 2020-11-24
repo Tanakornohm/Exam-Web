@@ -40,7 +40,7 @@ async function start() {
 }
 
 function loadLabeledImages() {
-    const labels = ['Nonthakorn'];
+    const labels = ['Meen'];
     return Promise.all(
         labels.map(async label => {
             const descriptions = []
@@ -62,8 +62,8 @@ function loadLabeledImages() {
 }
 
 function loadLabeledImagesFromModel() {
-    // const members = ['Dorn','Thanapon','Prachya','Baipor','Warit','Narongded','Siwapan','Chirayu','Natthawut','Pacharapon','Jirapas','Ariya','Wassapon','Poom','Teerachai','Nipith','Fern','Meen','Kla','Kim','Varen','Prem','Pongsapak','Arm','Parin','Rattanawich','Tinnapat','Thongngurn','Tanakorn','Mhee','Nonthakorn'];
-    const members = ['Prachya']
+    // const members = ['Dorn','Thanapon','Prachya','Baipor','Warit','Narongded','Siwapan','Chirayu','Natthawut','Pacharapon','Jirapas','Ariya','Poom','Teerachai','Nipith','Fern','Meen','Kla','Kim','Varen','Prem','Pongsapak','Arm','Parin','Rattanawich','Tinnapat','Thongngurn','Tanakorn','Mhee','Nonthakorn'];
+    const members = ['Nonthakorn']
     const labeledFaceDescriptors = members.map(
         member =>
             new faceapi.LabeledFaceDescriptors(
@@ -73,6 +73,8 @@ function loadLabeledImagesFromModel() {
                 )
             )
     );
+    const test = ['Dorn','Thanapon','Prachya','Baipor','Warit','Narongded','Siwapan','Chirayu','Natthawut','Pacharapon','Jirapas','Ariya','Poom','Teerachai','Nipith','Fern','Meen','Kla','Kim','Varen','Prem','Pongsapak','Arm','Parin','Rattanawich','Tinnapat','Thongngurn','Tanakorn','Mhee','Nonthakorn']
+    test.map(v => console.log(v))
     console.log('complete')
     return labeledFaceDescriptors
 }
