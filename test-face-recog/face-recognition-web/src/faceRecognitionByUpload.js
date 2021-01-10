@@ -62,8 +62,8 @@ function loadLabeledImages() {
 }
 
 function loadLabeledImagesFromModel() {
-    // const members = ['Dorn','Thanapon','Prachya','Baipor','Warit','Narongded','Siwapan','Chirayu','Natthawut','Pacharapon','Jirapas','Ariya','Poom','Teerachai','Nipith','Fern','Meen','Kla','Kim','Varen','Prem','Pongsapak','Arm','Parin','Rattanawich','Tinnapat','Thongngurn','Tanakorn','Mhee','Nonthakorn'];
-    const members = ['Nonthakorn']
+    const members = ['Dorn','Thanapon','Prachya','Baipor','Warit','Narongded','Siwapan','Chirayu','Natthawut','Pacharapon','Jirapas','Ariya','Poom','Teerachai','Nipith','Fern','Meen','Kla','Kim','Varen','Prem','Pongsapak','Arm','Parin','Rattanawich','Tinnapat','Thongngurn','Tanakorn','Mhee','Nonthakorn'];
+    // const members = ['Nipith']
     const labeledFaceDescriptors = members.map(
         member =>
             new faceapi.LabeledFaceDescriptors(
