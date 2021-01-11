@@ -23,17 +23,9 @@ video.addEventListener('play',async () => {
     const container = document.createElement('div')
     container.style.position = 'relative'
     document.body.append(container)
-    const labeledFaceDescriptors = await loadLabeledImages()
-    // const members = ['Dorn','Thanapon'];
-    // const labeledFaceDescriptors = members.map(
-    //     member =>
-    //         new faceapi.LabeledFaceDescriptors(
-    //             obj[member].name,
-    //             obj[member].descriptors.map(
-    //                 descriptor => new Float32Array(descriptor)
-    //             )
-    //         )
-    // );
+    // const labeledFaceDescriptors = await loadLabeledImages()
+    const labeledFaceDescriptors = await loadLabeledImagesFromModel()
+    
     document.body.append("Loaded")
     const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.5)
     const canvas = faceapi.createCanvasFromMedia(video)
@@ -74,6 +66,20 @@ function loadLabeledImages() {
         })
     )
 }
-function loadJson() {
-
+function loadLabeledImagesFromModel() {
+    const members = ['Dorn','Thanapon','Prachya','Baipor','Warit','Narongded','Siwapan','Chirayu','Natthawut','Pacharapon','Jirapas','Ariya','Poom','Teerachai','Nipith','Fern','Meen','Kla','Kim','Varen','Prem','Pongsapak','Arm','Parin','Rattanawich','Tinnapat','Thongngurn','Tanakorn','Mhee','Nonthakorn'];
+    // const members = ['Nipith']
+    const labeledFaceDescriptors = members.map(
+        member =>
+            new faceapi.LabeledFaceDescriptors(
+                obj[member].name,
+                obj[member].descriptors.map(
+                    descriptor => new Float32Array(descriptor)
+                )
+            )
+    );
+    const test = ['Dorn','Thanapon','Prachya','Baipor','Warit','Narongded','Siwapan','Chirayu','Natthawut','Pacharapon','Jirapas','Ariya','Poom','Teerachai','Nipith','Fern','Meen','Kla','Kim','Varen','Prem','Pongsapak','Arm','Parin','Rattanawich','Tinnapat','Thongngurn','Tanakorn','Mhee','Nonthakorn']
+    test.map(v => console.log(v))
+    console.log('complete')
+    return labeledFaceDescriptors
 }
