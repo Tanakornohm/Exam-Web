@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Creating Question for Exam</title>
+    <!-- USING BOOTSTRAP FOR STYLING USER INTERFACE -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        .customRow{
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+</style>
+</head>
+
+<body>
+    <div class="customRow">
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="text-center">Creating Question</h1>
+                    <hr>
+
+
+                    
+                    <form id="subjective" style="display: none;" action="/create-subjective" method="POST">
+                        <div class="form-group">
+                            <label for="post_title">Question : </label>
+                            <input type="text" name="title" class="form-control" placeholder="Title" id="post_title">
+                            <input type="submit" name="subjective" value="Create" class="btn btn-primary">
+                        </div>
+                    </form>
+                    <button onclick="subjective()">Subjective</button>
+
+
+
+
+                    <form id="choice" style="display: none;" action="/create-choice" method="POST">
+                        <div class="form-group">
+                            <label for="post_title">Question : </label> <br>
+                            <input type="text" name="title2" size="100" placeholder="Title" id="post_title"> 
+                            <!-- <input type="text" name="c1" class="form-control" placeholder="Choice 1" id="post_title">
+                            <input type="text" name="c2" class="form-control" placeholder="Choice 2" id="post_title">
+                            <input type="text" name="c3" class="form-control" placeholder="Choice 3" id="post_title">
+                            <input type="text" name="c4" class="form-control" placeholder="Choice 4" id="post_title">
+                            <input type="text" name="answer" class="form-control" placeholder="Answer" id="post_title"> -->
+                            <br>
+                            <p>
+                            <label>
+                                <input type="radio" name="v1" value="1"/><input type="text" size="100" name="c1" placeholder="Choice 1"></label>
+                              <label></p>
+
+                                <p>
+                            <label>
+                                <input type="radio" name="v1" value="2"/><input type="text" size="100" name="c2" placeholder="Choice 2"></label>
+                                <label></p>
+
+                                    <p>
+                            <label>
+                                <input type="radio" name="v1" value="3"/><input type="text" size="100" name="c3" placeholder="Choice 3"></label>
+                                <label></p>
+
+                                    <p>
+                            <label>
+                                <input type="radio" name="v1" value="4"/><input type="text" size="100" name="c4" placeholder="Choice 4"></label>
+                                <label></p>
+
+                                    
+                            <input type="submit" name="choice" value="Create" class="btn btn-primary" >
+                        </div> 
+                    </form>
+                    <button onclick="choice()">Choice</button>
+
+
+
+
+
+                    <form id="trueFalse" style="display: none;" action="/create-truefalse" method="POST">
+                        <div class="form-group">
+                            <label for="post_title">Question : </label>
+                            <input type="text" name="title3" class="form-control" placeholder="Title" id="post_title">
+                            <label>
+                                <input type="radio" name="v1" value="1"/>True</label>
+                              <label>
+                                <input type="radio" name="v1" value="2"/>False</label>
+                            <input type="submit" name="trueFlase" value="Create" class="btn btn-primary">
+                        </div>
+                    </form>
+                    <button onclick="trueFalse()">True False</button>
+                        
+                    <hr>
+                    <h2 class="text-center">All Questions</h2>
+                    <!-- IF HAVE ANY POSTS -->
+                    {% if posts|length > 0 %}
+                        <!-- LOOPING ALL THE POSTS -->
+                        {% for post in posts %}
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ post.title | e }} | <small><span>{{ post.created_at | date("d M, Y") }}</span></small></h5>
+                                    <p class="card-text text-justify">{{ post.content | e }}</p>
+                                    <span class="float-right"><strong>By</strong>, {{ post.author | e }}</span>
+                                    <a href="/edit/{{ post.id | e }}" class="btn btn-light">✎ Edit</a>
+                                    <a href="/delete/{{ post.id | e }}" class="btn btn-danger">Delete</a>
+                                </div>
+                            </div>
+                            <hr>
+                        {% endfor %}
+                    {% else %}
+                        <h4>No Question Found !</h4>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function choice() {
+  var x = document.getElementById("choice");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+function subjective() {
+  var x = document.getElementById("subjective");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+function trueFalse() {
+  var x = document.getElementById("trueFalse");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+
+</html>

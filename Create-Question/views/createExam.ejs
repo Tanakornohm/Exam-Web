@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreateExam</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <style>
+            .customRow{
+                background-color: #f2f2f2;
+                padding: 20px;
+            }
+    </style>
+</head>
+<body>
+    <div class="customRow">
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="text-center">Creating Exam</h1>
+                    <hr>
+                    <form action="/create-exampaper" method="POST">
+                        <div class="form-group">
+                            <!-- <label for="post_title">Subject Name :  </label>
+                            <input type="text" name="title" class="form-control" placeholder="Title"> -->
+                            <label>StartDate:</label>
+                            <input type="datetime-local" name="startDate">
+                            <label>EndDate:</label>
+                            <input type="datetime-local" name="endDate">
+                            <input type="text" name="semester" class="form-control" placeholder="Semester">
+                            <input type="submit" name="subjective" value="Create" class="btn btn-primary">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

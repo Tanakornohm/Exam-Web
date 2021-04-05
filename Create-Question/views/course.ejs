@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Creating Question for Exam</title>
+        <!-- USING BOOTSTRAP FOR STYLING USER INTERFACE -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <style>
+            .customRow{
+                background-color: #f2f2f2;
+                padding: 20px;
+            }
+    </style>
+    </head>
+<body>
+    <div class="customRow">
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="text-center">Creating Course</h1>
+                    <hr>
+                    <form action="/create-course" method="POST">
+                        <div class="form-group">
+                            <label for="post_title">Subject Name :  </label>
+                            <input type="text" name="title" class="form-control" placeholder="Title" id="post_title">
+                            <input type="text" name="semester" class="form-control" placeholder="Semester" id="post_title">
+                            <input type="submit" name="subjective" value="Create" class="btn btn-primary">
+                        </div>
+                    </form>
+                    <hr>
+                    <h2 class="text-center">All Course</h2>
+                    <!-- IF HAVE ANY POSTS -->
+                    <% if (teach.length> 0) { %>
+                        <% for (var i = 0; i < teach.length; i++) { %>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <p class="card-text text-justify"><%= teach[i].course_id %></p>
+                                            <p class="card-title"><%= courses[teach[i].course_id].title %><small></small></p>
+                                            <p class="card-text text-justify"><%= teach[i].semester %></p>
+                                            <!-- <a href="/edit/{{ post.id | e }}" class="btn btn-light">✎ Edit</a> -->
+                                            <!-- <a href="/delete/{{ post.id | e }}" class="btn btn-danger">Delete</a> -->
+                                        </div>
+                                    </div>
+                                    <hr>
+
+                        <% } %>
+                        <% } else{ %>  
+                            <h4>No Course Found !</h4>
+                         <% } %> 
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Question</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        .customRow{
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+</style>
+</head>
+
+<body>
+    <div class="customRow">
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="text-center">Question Management System</h1>
+                    <hr>
+                    {% if post is empty %}
+                        <h3>Invalid Question ID</h3>
+                    {% else %}
+                        <form action="" method="POST">
+                            <div class="form-group">
+                                <label for="post_title">Title</label>
+                                <input type="text" name="title" class="form-control" placeholder="Title" id="post_title" value="{{ post.title | e }}" required>
+                                {% if post.choice3 is not empty %}
+                                <input type="text" name="choice1" class="form-control" placeholder="Choice1" id="post_title" value="{{ post.choice1 | e }}" required>
+                                <input type="text" name="choice2" class="form-control" placeholder="Choice2" id="post_title" value="{{ post.choice2 | e }}" required>
+                                <input type="text" name="choice3" class="form-control" placeholder="Choice3" id="post_title" value="{{ post.choice3 | e }}" required>
+                                <input type="text" name="choice4" class="form-control" placeholder="Choice4" id="post_title" value="{{ post.choice4 | e }}" required>
+                                {% endif %}
+                                {% if post.answer is not empty %}
+                                <input type="text" name="answer" class="form-control" placeholder="Answer" id="post_title" value="{{ post.answer | e }}" required>
+                                {% endif %}
+                                <input type="submit" value="UPDATE" class="btn btn-success">
+                            </div>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+
+</html>
